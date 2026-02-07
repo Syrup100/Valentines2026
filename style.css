@@ -1,0 +1,66 @@
+body {
+    /* Palitan mo yung 'background.jpg' ng exact filename ng picture mo na i-uuwpload sa GitHub */
+    background-image: url('background.jpg'); 
+    
+    /* Sinisiguro nito na laging sakop ng picture ang buong screen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* Dagdag natin 'to para magkaroon ng semi-transparent box sa likod ng text */
+.container {
+    text-align: center;
+    background-color: rgba(255, 238, 242, 0.8); /* White-pinkish na medyo transparent */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px); /* Optional: ginagawang blur yung background sa likod ng box */
+}
+
+h1 {
+    color: #d63384;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#header-img {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-weight: bold;
+}
+
+#yesButton {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+#noButton {
+    background-color: #6c757d;
+    color: white;
+}
