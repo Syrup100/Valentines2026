@@ -1,6 +1,6 @@
 body {
     /* Make sure the filename matches what you uploaded */
-    background-image: url('background image.jpg'); 
+    background-image: url('bgimage.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
