@@ -6,7 +6,6 @@
     <title>Be My Valentine? ❤️</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Overlay para sa Music */
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #ffeef2; display: flex; justify-content: center;
@@ -14,31 +13,24 @@
             transition: opacity 0.5s ease;
         }
 
-        #yes-screen { display: none; }
+        #yes-screen { display: none; flex-direction: column; align-items: center; justify-content: center; }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 20px;
         }
 
-        /* Styling para sa "YAY" Message */
         .sweet-message {
-            color: white; /* White font */
-            font-size: 1.8rem; /* Bigger font */
-            font-weight: bold;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Para mas madaling basahin sa background */
-            margin-top: 20px;
-            max-width: 80%;
-            line-height: 1.4;
+            color: white; font-size: 1.8rem; font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            margin-top: 25px; max-width: 90%; line-height: 1.4;
         }
 
-        #header-img {
-            max-width: 250px;
-            border-radius: 15px;
+        h1 { color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); font-size: 2.5rem; }
+
+        #header-img, .cat-gif {
+            max-width: 300px; width: 100%; height: auto;
+            border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
     </style>
 </head>
@@ -55,27 +47,25 @@
     <div id="proposal-screen" class="container">
         <img id="header-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpndW10eGZ6bm5oZzR4eG5oZzR4eG5oZzR4eG5oZzR4eG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif">
         <h1>Will you be my Valentine? ❤️</h1>
-        <div class="buttons">
-            <button id="yesButton" onclick="showYesScreen()">YES</button>
-            <button id="noButton" onclick="increaseYesSize()">NO</button>
+        <div class="buttons" style="margin-top: 20px; display: flex; gap: 20px; align-items: center;">
+            <button id="yesButton" onclick="showYesScreen()" style="padding: 15px 30px; font-size: 1.2rem; background: #28a745; color: white; border: none; border-radius: 10px; cursor: pointer;">YES</button>
+            <button id="noButton" onclick="increaseYesSize()" style="padding: 15px 30px; font-size: 1.2rem; background: #dc3545; color: white; border: none; border-radius: 10px; cursor: pointer;">NO</button>
         </div>
     </div>
 
     <div id="yes-screen" class="container">
-        <h1 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">YAY! See you on February 14, 2026! 🥰</h1>
-        <img src="https://media.tenor.com/7p6p-mH9F-kAAAAd/nub-nub-cat.gif" alt="Nub Nub Cat" style="width: 280px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+        <h1>YAY! See you on February 14, 2026! 🥰</h1>
+        <img src="https://c.tenor.com/7p6p-mH9F-kAAAAd/nub-nub-cat.gif" class="cat-gif" alt="Nub Nub Cat">
         
         <p class="sweet-message">
-            Thank you, Baby! I'm the happiest! I promise that we'll have a wonderful time together. I love you so much! ❤️
+            Thank you, Baby! I promise that we'll have a wonderful time together. I love you so much! ❤️
         </p>
     </div>
 
     <script>
         function startEverything() {
             document.getElementById('overlay').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('overlay').style.display = 'none';
-            }, 500);
+            setTimeout(() => { document.getElementById('overlay').style.display = 'none'; }, 500);
             document.getElementById('myAudio').play();
         }
 
