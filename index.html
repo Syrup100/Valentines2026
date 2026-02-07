@@ -5,8 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Valentine?</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Overlay Style */
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffeef2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            cursor: pointer;
+        }
+        .start-btn {
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            background: #ff4d6d;
+            color: white;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
+
+    <div id="overlay" onclick="startEverything()">
+        <button class="start-btn">Click to Open ❤️</button>
+    </div>
+
+    <audio id="myAudio" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
         <img id="header-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpndW10eGZ6bm5oZzR4eG5oZzR4eG5oZzR4eG5oZzR4eG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Bear">
         <h1>Will you be my Valentine? ❤️</h1>
@@ -17,13 +48,20 @@
     </div>
 
     <script>
+        function startEverything() {
+            // Tatanggalin ang overlay at i-play ang music
+            document.getElementById('overlay').style.display = 'none';
+            let audio = document.getElementById('myAudio');
+            audio.play().catch(error => console.log("Autoplay blocked:", error));
+        }
+
         let yesSize = 1;
         function increaseYesSize() {
             yesSize += 0.4; 
             const yesButton = document.getElementById('yesButton');
             yesButton.style.transform = `scale(${yesSize})`;
             
-            const noMessages = ["Bleh!", "Luh?", "Hala Anlala!", "Maling Sagot!", "YES NA KASI!"];
+            const noMessages = ["Sure ka?", "Re-think please!", "Baka napindot lang?", "Wait lang!", "Click YES na!"];
             const noButton = document.getElementById('noButton');
             noButton.innerText = noMessages[Math.floor(Math.random() * noMessages.length)];
         }
