@@ -1,1 +1,33 @@
-"Hello World"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img id="header-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpndW10eGZ6bm5oZzR4eG5oZzR4eG5oZzR4eG5oZzR4eG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Bear">
+        <h1>Will you be my Valentine? ❤️</h1>
+        <div class="buttons">
+            <button id="yesButton" onclick="location.href='yes.html'">YES</button>
+            <button id="noButton" onclick="increaseYesSize()">NO</button>
+        </div>
+    </div>
+
+    <script>
+        let yesSize = 1;
+        function increaseYesSize() {
+            yesSize += 0.5; // Dinadagdagan ang laki every click ng No
+            const yesButton = document.getElementById('yesButton');
+            yesButton.style.transform = `scale(${yesSize})`;
+            
+            // Optional: Palitan ang text ng No button para mas makulit
+            const noMessages = ["Sure ka?", "Wait, rethink please!", "Baka nagkamali ka lang?", "Grabe siya...", "Huhu click Yes na!"];
+            const noButton = document.getElementById('noButton');
+            noButton.innerText = noMessages[Math.floor(Math.random() * noMessages.length)];
+        }
+    </script>
+</body>
+</html>
