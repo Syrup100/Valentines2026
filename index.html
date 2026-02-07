@@ -6,53 +6,51 @@
     <title>Be My Valentine?</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Overlay Style */
         #overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: #ffeef2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            cursor: pointer;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffeef2; display: flex; justify-content: center;
+            align-items: center; z-index: 9999; cursor: pointer;
         }
-        .start-btn {
-            padding: 20px 40px;
-            font-size: 1.5rem;
-            background: #ff4d6d;
-            color: white;
-            border-radius: 50px;
-            border: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+        /* Itatago natin ang Yes screen sa simula */
+        #yes-screen { display: none; }
     </style>
 </head>
 <body>
 
     <div id="overlay" onclick="startEverything()">
-        <button class="start-btn">Click to Open ❤️</button>
+        <button style="padding: 20px 40px; font-size: 1.5rem; background: #ff4d6d; color: white; border-radius: 50px; border: none;">Click to Open ❤️</button>
     </div>
 
     <audio id="myAudio" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="container">
-        <img id="header-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpndW10eGZ6bm5oZzR4eG5oZzR4eG5oZzR4eG5oZzR4eG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Bear">
+    <div id="proposal-screen" class="container">
+        <img id="header-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpndW10eGZ6bm5oZzR4eG5oZzR4eG5oZzR4eG5oZzR4eG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif">
         <h1>Will you be my Valentine? ❤️</h1>
         <div class="buttons">
-            <button id="yesButton" onclick="location.href='yes.html'">YES</button>
+            <button id="yesButton" onclick="showYesScreen()">YES</button>
             <button id="noButton" onclick="increaseYesSize()">NO</button>
         </div>
     </div>
 
+    <div id="yes-screen" class="container">
+        <h1>YAY! See you on February 14, 2026! 🥰</h1>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXN6bm5oZzR4eG5oZzR4eG5oZzR4eG5oZzR4eG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/K77qX8BqG2oV1cWz8U/giphy.gif" style="width: 200px;">
+        <p style="color: #6c757d; margin-top: 15px;">I love you! (o kahit anong message mo dito)</p>
+    </div>
+
     <script>
         function startEverything() {
-            // Tatanggalin ang overlay at i-play ang music
             document.getElementById('overlay').style.display = 'none';
-            let audio = document.getElementById('myAudio');
-            audio.play().catch(error => console.log("Autoplay blocked:", error));
+            document.getElementById('myAudio').play();
+        }
+
+        function showYesScreen() {
+            // Itatago ang proposal, ipapakita ang yes screen
+            document.getElementById('proposal-screen').style.display = 'none';
+            document.getElementById('yes-screen').style.display = 'block';
+            // Ang music ay hindi titigil dahil nasa iisang page lang tayo!
         }
 
         let yesSize = 1;
@@ -61,7 +59,7 @@
             const yesButton = document.getElementById('yesButton');
             yesButton.style.transform = `scale(${yesSize})`;
             
-            const noMessages = ["Sure ka?", "Re-think please!", "Baka napindot lang?", "Wait lang!", "Click YES na!"];
+            const noMessages = ["Mali Babe!", "Luh?", "Anlala Grabe!", "Wrong Answer!", "Bahala Ka Sa Buhay Mo!"];
             const noButton = document.getElementById('noButton');
             noButton.innerText = noMessages[Math.floor(Math.random() * noMessages.length)];
         }
