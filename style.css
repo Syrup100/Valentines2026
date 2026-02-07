@@ -1,9 +1,9 @@
 body {
-    /* Make sure the filename matches what you uploaded */
-    background-image: url('bgimage.jpg'); 
+    background-image: url('bgimage.jpg'); /* Heto ang fix! */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     height: 100vh;
     margin: 0;
     display: flex;
@@ -13,17 +13,17 @@ body {
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.85); /* White background na transparent */
-    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.85); 
+    padding: 40px;
     border-radius: 30px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     text-align: center;
-    backdrop-filter: blur(8px); /* Optional: ginagawang blur ang background sa likod ng box */
-    max-width: 80%;
+    backdrop-filter: blur(8px);
+    max-width: 85%;
 }
 
 h1 {
-    color: #b91d1d; /* Deep red para bumagay sa hearts */
+    color: #b91d1d;
     font-size: 2.2rem;
     margin: 20px 0;
 }
@@ -53,15 +53,10 @@ button {
 #yesButton {
     background-color: #ff4d6d;
     color: white;
-    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
 }
 
 #noButton {
     background-color: #f8f9fa;
     color: #495057;
     border: 1px solid #dee2e6;
-}
-#noButton {
-    background-color: #6c757d;
-    color: white;
 }
